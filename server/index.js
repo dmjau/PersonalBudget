@@ -9,7 +9,7 @@ app.set('port', process.env.PORT || 3000); // defined port use to connect
 app.use(express.json()); //use this middleware for received json 
 
 //Routes
-app.use(require('./routes/register.routes'));
+app.use('/api/register', require('./routes/register.routes'));
 
 //Starting server on port defined on Setting
 app.listen(app.get('port'), function(){

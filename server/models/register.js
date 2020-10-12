@@ -5,7 +5,9 @@ const {Schema} = mongoose;
 const RegisterSchema = new Schema({
     concept: { type: String, required: true },
     amount: { type: Number, require: true },
-    date: { type: Date, require: true },
+    dateYear: { type: Number, require: true },
+    dateMonth: { type: Number, require: true },
+    dateDay: { type: Number, require: true },
     kind: { type: String, require: true },
     category: { type: String }
 });
