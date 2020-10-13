@@ -1,5 +1,6 @@
 //This file controls DB connection.
 const mongoose = require ('mongoose');
+mongoose.set('useFindAndModify', false);
 
 //Middlewares
 mongoose.promise = global.promise;

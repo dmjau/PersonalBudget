@@ -4,6 +4,7 @@
             <div class="card">
                 <div class="card-content">
                     <form #registerForm="ngForm" (ngSubmit)="addRegister(registerForm)">
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="registerService.selectedRegister._id">
                         <div class="row">
                             <div class="input-field col s12">
                                 <input type="text" name="concept" #concept="ngModel" [(ngModel)]="registerService.selectedRegister.concept" placeholder="Enter Description">
@@ -11,13 +12,13 @@
                             <div class="input-field col s12">
                                 <input type="text" name="amount" #amount="ngModel" [(ngModel)]="registerService.selectedRegister.amount" placeholder="Enter Amount $">
                             </div>
-                            <div class="input-field col s12">
+                            <div class="input-field col s4">
                                 <input type="text" name="dateYear" #dateYear="ngModel" [(ngModel)]="registerService.selectedRegister.dateYear" placeholder="Year">
                             </div>
-                            <div class="input-field col s12">
+                            <div class="input-field col s4">
                                 <input type="text" name="dateMonth" #dateMonth="ngModel" [(ngModel)]="registerService.selectedRegister.dateMonth" placeholder="Month">
                             </div>
-                            <div class="input-field col s12">
+                            <div class="input-field col s4">
                                 <input type="text" name="dateDay" #dateDay="ngModel" [(ngModel)]="registerService.selectedRegister.dateDay" placeholder="Day">
                             </div>
                             <div class="input-field col s12">
@@ -26,13 +27,48 @@
                             <div class="input-field col s12">
                                 <input type="text" name="category" #category="ngModel" [(ngModel)]="registerService.selectedRegister.category" placeholder="Enter Category">
                             </div>
+                            <div class="card-action">
+                                <div class="input-field col s12">
+                                    <button class="btn right" style="margin-left: 4px; background-color: crimson;">Save</button>
+                                    <button class="btn right" style="background-color: darkgrey;" (click)="resetForm(registerForm)">Clean</button>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
         <div class="col s7">
-
+            <table>
+                <thead>
+                    <th>Description</th>
+                    <th>$</th>
+                    <th>Year</th>
+                    <th>Month</th>
+                    <th>Day</th>
+                    <th>Type</th>
+                    <th>Category</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let register of registerService.registers">
+                        <td>{{ register.concept }}</td>
+                        <td>{{ register.amount }}</td>
+                        <td>{{ register.dateYear }}</td>
+                        <td>{{ register.dateMonth }}</td>
+                        <td>{{ register.dateDay }}</td>
+                        <td>{{ register.kind }}</td>
+                        <td>{{ register.category }}</td>
+                        <td>
+                            <a (click)="editRegister(register)">
+                                <i class="material-icons">edit</i>
+                            </a>
+                            <a (click)="deleteRegister(register._id)">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

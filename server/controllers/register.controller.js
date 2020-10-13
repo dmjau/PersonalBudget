@@ -11,9 +11,16 @@ registerCtrl.getRegisters = async function(req, res){
 
 //Create register
 registerCtrl.createRegister = async function(req, res){
-    const register = new Register(req.body);
+    const register = new Register({
+        concept: req.body.concept,
+        amount: req.body.amount,
+        dateYear: req.body.dateYear,
+        dateMonth: req.body.dateMonth,
+        dateDay: req.body.dateDay,
+        kind: req.body.kind,
+        category: req.body.category
+    });
     await register.save();
-    console.log(register);
     res.json({
         'status': 'Register Saved'
     });
