@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Register } from 'src/app/models/register';
 import { RegisterService } from '../../services/register.service';
 
-//Declare this constant that uses toast message
+//Use this constant for use toast message
 declare var M: any;
 
 @Component({
@@ -56,6 +56,7 @@ export class RegisterComponent implements OnInit {
   editRegister(register: Register){
     this.registerService.selectedRegister = register;
   }
+
 
   deleteRegister(_id: string){
     if (confirm('Are you sure you want delete it?')){
