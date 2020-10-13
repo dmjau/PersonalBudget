@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col s5">
+            <div class="card">
+                <div class="card-content">
+                    <form #registerForm="ngForm" (ngSubmit)="addRegister(registerForm)">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="text" name="concept" #concept="ngModel" [(ngModel)]="registerService.selectedRegister.concept" placeholder="Enter Description">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="amount" #amount="ngModel" [(ngModel)]="registerService.selectedRegister.amount" placeholder="Enter Amount $">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="dateYear" #dateYear="ngModel" [(ngModel)]="registerService.selectedRegister.dateYear" placeholder="Year">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="dateMonth" #dateMonth="ngModel" [(ngModel)]="registerService.selectedRegister.dateMonth" placeholder="Month">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="dateDay" #dateDay="ngModel" [(ngModel)]="registerService.selectedRegister.dateDay" placeholder="Day">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="kind" #kind="ngModel" [(ngModel)]="registerService.selectedRegister.kind" placeholder="Income or Outcome">
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="category" #category="ngModel" [(ngModel)]="registerService.selectedRegister.category" placeholder="Enter Category">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col s7">
+
+        </div>
+    </div>
+</div>
