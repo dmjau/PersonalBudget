@@ -6,12 +6,7 @@
                     <form #registerForm="ngForm" (ngSubmit)="addRegister(registerForm)">
                         <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="registerService.selectedRegister._id">
                         <div class="row">
-                            <div class="card blue-grey darken-1">
-                                <div class="card-content white-text">
-                                  <span class="card-title">Balance</span>
-                                  <h3>000</h3>
-                                </div>
-                            </div>
+                            <app-balance-card></app-balance-card>
                             <div class="input-field col s12">
                                 <input type="text" name="concept" #concept="ngModel" [(ngModel)]="registerService.selectedRegister.concept" placeholder="Enter Description">
                             </div>

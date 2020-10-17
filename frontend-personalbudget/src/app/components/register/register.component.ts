@@ -55,6 +55,7 @@ export class RegisterComponent implements OnInit {
 
   editRegister(register: Register){
     this.registerService.selectedRegister = register;
+    this.getRegisters();
   }
 
   deleteRegister(_id: string){
