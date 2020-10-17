@@ -1,12 +1,10 @@
 export class Register {
     
-    constructor(_id = '', concept = '', amount = null, dateYear = null, dateMonth = null, dateDay = null, kind = '', category = ''){
+    constructor(_id = '', concept = '', amount = null, date = null, kind = '', category = ''){
         this._id = _id;
         this.concept = concept;
         this.amount = amount;
-        this.dateYear = dateYear;
-        this.dateMonth = dateMonth;
-        this.dateDay = dateDay;
+        this.date = date;
         this.kind = kind;
         this.category = category
     }
@@ -14,9 +12,7 @@ export class Register {
     _id: string;
     concept: string;
     amount: number;
-    dateYear: number;
-    dateMonth: number;
-    dateDay: number;
+    date: Date;
     kind: string;
     category: string
 }

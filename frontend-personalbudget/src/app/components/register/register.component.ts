@@ -57,7 +57,6 @@ export class RegisterComponent implements OnInit {
     this.registerService.selectedRegister = register;
   }
 
-
   deleteRegister(_id: string){
     if (confirm('Are you sure you want delete it?')){
       this.registerService.deleteRegister(_id)

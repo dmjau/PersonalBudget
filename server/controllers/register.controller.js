@@ -6,6 +6,7 @@ const registerCtrl = {};
 //Get all registers
 registerCtrl.getRegisters = async function(req, res){
    const registers = await Register.find();
+   registers.sort((a,b) => b.date - a.date); //Order the array by date before send
    res.json(registers);
 };
 
@@ -14,9 +15,7 @@ registerCtrl.createRegister = async function(req, res){
     const register = new Register({
         concept: req.body.concept,
         amount: req.body.amount,
-        dateYear: req.body.dateYear,
-        dateMonth: req.body.dateMonth,
-        dateDay: req.body.dateDay,
+        date: req.body.date,
         kind: req.body.kind,
         category: req.body.category
     });
@@ -38,9 +37,7 @@ registerCtrl.editRegister = async function(req, res){
     const registerUpdate = {
         concept: req.body.concept,
         amount: req.body.amount,
-        dateYear: req.body.dateYear,
-        dateMonth: req.body.dateMonth,
-        dateDay: req.body.dateDay,
+        date: req.body.date,
         kind: req.body.kind,
         category: req.body.category
     };

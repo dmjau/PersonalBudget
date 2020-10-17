@@ -9,7 +9,7 @@
                             <div class="card blue-grey darken-1">
                                 <div class="card-content white-text">
                                   <span class="card-title">Balance</span>
-                                  <h3>$00.00</h3>
+                                  <h3>000</h3>
                                 </div>
                             </div>
                             <div class="input-field col s12">
@@ -18,14 +18,8 @@
                             <div class="input-field col s12">
                                 <input type="text" name="amount" #amount="ngModel" [(ngModel)]="registerService.selectedRegister.amount" placeholder="Enter Amount $">
                             </div>
-                            <div class="input-field col s4">
-                                <input type="text" name="dateYear" #dateYear="ngModel" [(ngModel)]="registerService.selectedRegister.dateYear" placeholder="Year">
-                            </div>
-                            <div class="input-field col s4">
-                                <input type="text" name="dateMonth" #dateMonth="ngModel" [(ngModel)]="registerService.selectedRegister.dateMonth" placeholder="Month">
-                            </div>
-                            <div class="input-field col s4">
-                                <input type="text" name="dateDay" #dateDay="ngModel" [(ngModel)]="registerService.selectedRegister.dateDay" placeholder="Day">
+                            <div class="input-field col s12">
+                                <input type="text" name="date" #date="ngModel" [(ngModel)]="registerService.selectedRegister.date" placeholder="YYYY/MM/DD">
                             </div>
                             <div class="input-field col s12">
                                 <input type="text" name="kind" #kind="ngModel" [(ngModel)]="registerService.selectedRegister.kind" placeholder="Income or Outcome">
@@ -49,19 +43,15 @@
                 <thead>
                     <th>Description</th>
                     <th>$</th>
-                    <th>Year</th>
-                    <th>Month</th>
-                    <th>Day</th>
+                    <th>Date</th>
                     <th>Type</th>
                     <th>Category</th>
                 </thead>
                 <tbody>
                     <tr *ngFor="let register of registerService.registers | slice: 0:10; let i=index">
                         <td>{{ register.concept }}</td>
-                        <td>${{ register.amount }}</td>
-                        <td>{{ register.dateYear }}</td>
-                        <td>{{ register.dateMonth }}</td>
-                        <td>{{ register.dateDay }}</td>
+                        <td>{{ register.amount | currency: 'USD' }}</td>
+                        <td>{{ register.date | date:'dd-MM-yyyy' }}</td>
                         <td>{{ register.kind }}</td>
                         <td>{{ register.category }}</td>
                         <td>
